@@ -33,4 +33,11 @@ scenarios:
       primary: 0.5
   - name: all_healthy
     description: "Baseline — both providers healthy"
-    provider_overrides: {}
+    provider_overrides:
+      primary: 0.0
+      backup: 0.0
+  - name: cascade_recovery
+    description: "Primary 80% fail, backup 10% fail — tests multi-layer resilience and fallback recovery"
+    provider_overrides:
+      primary: 0.8
+      backup: 0.1
